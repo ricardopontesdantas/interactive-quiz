@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Quiz</title>
+  </head>
+  <body style="background-color: #fff3cd">
+    <div class="container">
+      <h1 class="bg-warning bg-gradient p-5 shadow rounded">QUIZ</h1>
+
+      <h2 class="mt-5 mb-5 display-6">Você sabe tudo sobre FRIENDS?</h2>
+
+      <form>
+        <div class="question">
+          <p class="lead">1. Qual é o nome completo de Chandler?</p>
+          <div class="form-check">
+            <input
+              type="radio"
+              name="question_1"
+              id="answer_1"
+              value="A"
+              class="form-check-input"
+            />
+            <label for="answer_1" class="form-check-label"
+              >Chandler Meghan Bing</label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              name="question_1"
+              id="answer_2"
+              value="B"
+              class="form-check-input"
+            />
+            <label for="answer_2" class="form-check-label"
+              >Chandler Muriel Bing</label
+            >
+          </div>
+        </div>
+
+        <div class="question mt-5">
+          <p class="lead">2. Com quem Janice namorou?</p>
+          <div class="form-check">
+            <input
+              type="radio"
+              name="question_2"
+              id="answer_3"
+              value="A"
+              class="form-check-input"
+            />
+            <label for="answer_3" class="form-check-label">Chandler</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              name="question_2"
+              id="answer_4"
+              value="B"
+              class="form-check-input"
+            />
+            <label for="answer_4" class="form-check-label">Joey</label>
+          </div>
+        </div>
+
+        <div class="question mt-5">
+          <p class="lead">3. Qual canção da Phoebe fez mais sucesso?</p>
+          <div class="form-check">
+            <input
+              type="radio"
+              name="question_3"
+              id="answer_5"
+              value="A"
+              class="form-check-input"
+            />
+            <label for="answer_5" class="form-check-label">Ross can</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              name="question_3"
+              id="answer_6"
+              value="B"
+              class="form-check-input"
+            />
+            <label for="answer_6" class="form-check-label">Smelly cat</label>
+          </div>
+        </div>
+
+        <div class="question mt-5 mb-5">
+          <p class="lead">4. Quantos casamentos Ross teve?</p>
+          <div class="form-check">
+            <input
+              type="radio"
+              name="question_4"
+              id="answer_7"
+              value="A"
+              class="form-check-input"
+            />
+            <label for="answer_7" class="form-check-label">3</label>
+          </div>
+          <div class="form-check">
+            <input
+              type="radio"
+              name="question_4"
+              id="answer_8"
+              value="B"
+              class="form-check-input"
+            />
+            <label for="answer_8" class="form-check-label">4</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary mb-5">
+          ENVIAR AS RESPOSTAS
+        </button>
+      </form>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
