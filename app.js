@@ -1,41 +1,52 @@
-const form = document.querySelector("form");
+const quizForm = document.querySelector("form");
 const button = document.querySelector("button");
-const paragraphWithScore = document.createElement("p");
+const paragraphWithScore = document.querySelector(".user-score");
 const questions = document.querySelectorAll("div.question");
-const quizAnswers = ["B", "A", "B", "A"];
+const quizAnswers = ["B", "A", "D", "C"];
 let score = 0;
 
-const styleFromZeroTo25Percent = "alert alert-danger display-6 mb-2";
-const style50Percent = "alert alert-secondary display-6 mb-2";
-const styleFrom75To100Percent = "alert alert-success display-6 mb-2";
+const styleFromZeroTo25Percent = "alert alert-danger";
+const style50Percent = "alert alert-secondary";
+const styleFrom75To100Percent = "alert alert-success";
+const styleDefault = "alert alert-light";
 
-stylizeScore = (score) => {
-  switch (score) {
-    case 0:
-    case 25:
-      paragraphWithScore.setAttribute("class", styleFromZeroTo25Percent);
-      break;
-    case 50:
-      paragraphWithScore.setAttribute("class", style50Percent);
-      break;
-    default:
-      paragraphWithScore.setAttribute("class", styleFrom75To100Percent);
-  }
-};
+const getScoreStyle = (score) =>
+  ({
+    0: styleFromZeroTo25Percent,
+    25: styleFromZeroTo25Percent,
+    50: style50Percent,
+    75: styleFrom75To100Percent,
+    100: styleFrom75To100Percent,
+  }[score] || styleDefault);
 
 const showScore = (score) => {
   paragraphWithScore.textContent = `Você acertou ${score}% das respostas.`;
-  button.insertAdjacentElement("beforebegin", paragraphWithScore);
+  paragraphWithScore.setAttribute("class", getScoreStyle(score));
 };
 
-const sendAnswers = (event) => {
+const incrementCounter = () => {
+  let counter = 0;
+
+  const timer = setInterval(() => {
+    showScore(counter);
+
+    if (counter === score) {
+      clearInterval(timer);
+      score = 0;
+    }
+
+    counter++;
+  }, 15);
+};
+
+const handleQuizSubmit = (event) => {
   event.preventDefault();
 
   const userAnswers = [
-    form.question_1.value,
-    form.question_2.value,
-    form.question_3.value,
-    form.question_4.value,
+    quizForm.question_1.value,
+    quizForm.question_2.value,
+    quizForm.question_3.value,
+    quizForm.question_4.value,
   ];
 
   const checkUserAnswers = (answer, index) => {
@@ -53,10 +64,9 @@ const sendAnswers = (event) => {
 
   quizAnswers.forEach(checkUserAnswers);
 
-  stylizeScore(score);
-  showScore(score);
+  scrollTo(0, 0);
 
-  score = 0;
+  incrementCounter();
 };
 
-form.addEventListener("submit", sendAnswers);
+quizForm.addEventListener("submit", handleQuizSubmit);
